@@ -15,8 +15,8 @@ spec:
         - type: URLRewrite
           urlRewrite:
             path: 
-              type: ReplacePrefixPath
-              replacePrefixPath: /
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /
       backendRefs:
         - name: capsule-service
           port: 80
