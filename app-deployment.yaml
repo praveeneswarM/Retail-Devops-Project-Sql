@@ -19,8 +19,8 @@ spec:
         ports:
         - containerPort: 3000
         envFrom:
-          configMapRef:
-            name: retail-config
+          - configMapRef:
+              name: retail-config
         # - name: DB_HOST
         #   value: "mysql-service"
         # - name: DB_USER
