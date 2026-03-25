@@ -30,37 +30,108 @@ spec:
         image: vasuvarshney07/vasu_varshney_fordocker-app:latest
         ports:
         - containerPort: 3000
-        envFrom:
-          - configMapRef:
-              name: retail-config
-        # - name: DB_HOST
-        #   value: "mysql-service"
+        env:
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: retail-config 
+                key: DB_HOST
+          - name: DB_USER
+            valueFrom:
+              configMapKeyRef:
+                name: retail-config 
+                key: DB_USER
         # - name: DB_USER
         #   value: "root"
+          - name: DB_PASSWORD
+            valueFrom:
+              configMapKeyRef:
+                name: retail-config 
+                key: DB_PASSWORD
         # - name: DB_PASSWORD
         #   value: "rootpassword"
+          - name: DB_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: retail-config 
+                key: DB_NAME
         # - name: DB_NAME
         #   value: "capsule_db"
+          - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: retail-config 
+                key: DB_PORT
         # - name: DB_PORT
         #   value: "3306"
+          - name: PORT
+            valueFrom:
+              configMapKeyRef:
+                name: retail-config 
+                key: PORT
         # - name: PORT
         #   value: "3000"
+          - name: NODE_ENV
+            valueFrom:
+              configMapKeyRef:
+                name: retail-config 
+                key: NODE_ENV
         # - name: NODE_ENV
         #   value: "production"
+          - name: SESSION_SECRET
+            valueFrom:
+              configMapKeyRef:
+                name: retail-config 
+                key: SESSION_SECRET
         # - name: SESSION_SECRET
         #   value: "capsule-k8s-secret-change-in-production"
+          - name: SESSION_MAX_AGE
+            valueFrom:
+              configMapKeyRef:
+                name: retail-config 
+                key: SESSION_MAX_AGE
         # - name: SESSION_MAX_AGE
         #   value: "1800000"
+          - name: LOW_STOCK_THRESHOLD
+            valueFrom:
+              configMapKeyRef:
+                name: retail-config 
+                key: LOW_STOCK_THRESHOLD
         # - name: LOW_STOCK_THRESHOLD
         #   value: "5"
+          - name: HIGH_STOCK_THRESHOLD
+            valueFrom:
+              configMapKeyRef:
+                name: retail-config 
+                key: HIGH_STOCK_THRESHOLD
         # - name: HIGH_STOCK_THRESHOLD
         #   value: "15"
+          - name: EMAIL_SERVICE
+            valueFrom:
+              configMapKeyRef:
+                name: retail-config 
+                key: EMAIL_SERVICE
         # - name: EMAIL_SERVICE
         #   value: "gmail"
+          - name: EMAIL_USER
+            valueFrom:
+              configMapKeyRef:
+                name: retail-config 
+                key: EMAIL_USER
         # - name: EMAIL_USER
         #   value: "your-email@gmail.com"
+          - name: EMAIL_PASS
+            valueFrom:
+              configMapKeyRef:
+                name: retail-config 
+                key: EMAIL_PASS
         # - name: EMAIL_PASS
         #   value: "your-gmail-app-password"
+          - name: SUPPORT_EMAIL
+            valueFrom:
+              configMapKeyRef:
+                name: retail-config 
+                key: SUPPORT_EMAIL
         # - name: SUPPORT_EMAIL
         #   value: "support@capsule.com"
 ---
