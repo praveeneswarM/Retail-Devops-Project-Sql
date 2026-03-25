@@ -9,5 +9,5 @@ spec:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
   nfs:
-    path: /var/nfs/mysql
+    path: /var/nfs/general/mysql
     server: 10.0.1.213
