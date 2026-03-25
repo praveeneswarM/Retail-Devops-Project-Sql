@@ -4,7 +4,12 @@ metadata:
   name: mysql
   namespace: praveen-ns
 spec:
-  replicas: 1
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   selector:
     matchLabels:
       app: mysql
@@ -15,6 +20,13 @@ spec:
     spec:
       containers:
       - name: mysql
+        resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "200m"
         image: mysql:8.0
         ports:
         - containerPort: 3306

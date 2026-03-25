@@ -10,7 +10,7 @@ spec:
     - matches:
         - path:
             type: PathPrefix
-            value: /retail
+            value: /
       filters:
         - type: URLRewrite
           urlRewrite:
@@ -20,4 +20,3 @@ spec:
       backendRefs:
         - name: capsule-service
           port: 80
-

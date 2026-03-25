@@ -5,6 +5,11 @@ metadata:
   namespace: praveen-ns
 spec:
   replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   selector:
     matchLabels:
       app: capsule-app
@@ -15,6 +20,13 @@ spec:
     spec:
       containers:
       - name: capsule-app
+        resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "200m"
         image: vasuvarshney07/vasu_varshney_fordocker-app:latest
         ports:
         - containerPort: 3000

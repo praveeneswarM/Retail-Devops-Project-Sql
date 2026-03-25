@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim 
+metadata:
+  name: retail-pvc 
+  namespace: praveen-ns 
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 8Gi
