@@ -43,8 +43,10 @@ spec:
         - name: mysql-storage
           mountPath: /var/lib/mysql
       volumes:
-      - name: mysql-storage
-        emptyDir: {}
+        - name: mysql-storage
+          persistentVolumeClaim:
+            claimName: retail-pvc
+        
 ---
 apiVersion: v1
 kind: Service
